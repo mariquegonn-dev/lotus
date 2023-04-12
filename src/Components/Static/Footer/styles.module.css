@@ -1,0 +1,6 @@
+.footer {
+  text-align: center;
+  margin-top: 75vh; /* Provisório */
+  padding: 40px 16px;
+  border-top: 1px solid var(--cor-divider);
+}

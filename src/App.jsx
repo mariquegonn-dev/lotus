@@ -5,7 +5,7 @@ import Header from "./Components/Static/Header";
 import Home from "./Components/Home";
 import CaloriasDiarias from "./Components/Rotas/CaloriasDiarias";
 import Macronutrientes from "./Components/Rotas/Macronutrientes";
-
+import Footer from "./Components/Static/Footer";
 const App = () => {
   return (
     <section className="container">
@@ -16,6 +16,7 @@ const App = () => {
           <Route path="caloriasDiarias" element={<CaloriasDiarias />} />
           <Route path="macronutrientes" element={<Macronutrientes />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </section>
   );
