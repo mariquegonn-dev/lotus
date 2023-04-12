@@ -4,3 +4,9 @@
   padding: 40px 16px;
   border-top: 1px solid var(--cor-divider);
 }
+
+@media (max-width: 550px) {
+  .footer {
+    padding: 20px 8px;
+  }
+}
