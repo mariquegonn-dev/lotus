@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 16px;
+  border-bottom: 1px solid var(--cor-divider);
+}
+
+.nav {
+  display: flex;
+  gap: 40px;
+}
+
+.nav li a {
+  padding: 1rem 0;
+  display: inline-block;
+  color: var(--cor-black);
+}
+
+.nav li a:hover {
+  color: var(--cor-blue);
+}
