@@ -3,7 +3,7 @@ import styles from "./Pages.module.css";
 import Button from "../Button";
 import Input from "../Input/InputSelect";
 import SexoImg from "../../assets/png/sexo.png";
-import { CustomerContext } from "../../Context";
+import { CustomerContext } from "../../Context/createAppContext";
 
 const Sexo = () => {
   const { data, handleData, error, setError } = useContext(CustomerContext);
