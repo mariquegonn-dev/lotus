@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import styles from "./styles.module.css";
 import Steps from "../../Steps";
-import { CustomerContext } from "../../../Context";
+import { CustomerContext } from "../../../Context/createAppContext";
 
 const index = () => {
   const { handleContent } = useContext(CustomerContext);

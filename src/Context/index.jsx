@@ -6,8 +6,7 @@ import Peso from "../Components/Pages/Peso";
 import AtividadeFisica from "../Components/Pages/AtividadeFisica";
 import Objetivo from "../Components/Pages/Objetivo";
 import Resultado from "../Components/Pages/Resultado";
-
-export const CustomerContext = createContext();
+import { CustomerContext } from "./createAppContext";
 
 export const CustomerProvider = ({ children }) => {
   const [data, setData] = React.useState({

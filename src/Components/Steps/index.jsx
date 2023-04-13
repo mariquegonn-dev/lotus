@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styles from "./styles.module.css";
-import { CustomerContext } from "../../Context";
+import { CustomerContext } from "../../Context//createAppContext";
 
 const index = () => {
   const { StepsArray, data } = useContext(CustomerContext);
