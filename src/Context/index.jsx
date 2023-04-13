@@ -45,7 +45,7 @@ export const CustomerProvider = ({ children }) => {
     }
   };
 
-  function handleData(key, vale) {
+  function handleData(key, value) {
     setData({
       ...data,
       [key]: value,
