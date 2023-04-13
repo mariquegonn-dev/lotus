@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
+import { CustomerProvider } from "./Context";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Components/Static/Header";
 import Home from "./Components/Home";
 import CaloriasDiarias from "./Components/Rotas/CaloriasDiarias";
 import Macronutrientes from "./Components/Rotas/Macronutrientes";
 import Footer from "./Components/Static/Footer";
-import { CustomerContext, CustomerProvider } from "./Context";
 const App = () => {
   return (
     <section className="container">

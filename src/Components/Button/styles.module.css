@@ -1,3 +1,37 @@
 .button {
-  color: red;
+  border: none;
+  cursor: pointer;
+  background: var(--cor-blue);
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0.3rem 0.3rem 0;
+}
+
+.buttonLeft {
+  border-radius: 0.3rem 0 0 0.3rem !important;
+}
+
+.button p {
+  font: 400 1.187rem/1 Arial;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.left,
+.right {
+  background: url("../../assets/arrow.svg") no-repeat center center;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.left {
+  transform: scale(-1);
+}
+
+.button:hover {
+  background: var(--cor-blue2);
 }

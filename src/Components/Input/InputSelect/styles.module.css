@@ -1,0 +1,25 @@
+.label {
+  font: 400 2.06rem/1 "Barlow";
+  max-width: 20ch;
+}
+
+.desc {
+  font: 400 1rem/1 "Barlow";
+  color: var(--cor-desc);
+}
+
+.select {
+  outline: none;
+  width: 90%;
+  border: 1px solid var(--cor-blueLight);
+  border-radius: 0.3rem;
+  padding: 1rem 1.125rem;
+  font-size: 1.125rem;
+  appearance: none;
+  background: url("../../../assets/down.svg") no-repeat right;
+  background-position-x: 90%;
+}
+
+.select:focus {
+  border-color: var(--cor-blue);
+}

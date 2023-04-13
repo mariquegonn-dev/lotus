@@ -1,0 +1,19 @@
+.content {
+  padding: 20px;
+  gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.form {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+  padding: 20px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
