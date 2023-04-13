@@ -10,7 +10,7 @@
 
 .select {
   outline: none;
-  width: 90%;
+  width: 70%;
   border: 1px solid var(--cor-blueLight);
   border-radius: 0.3rem;
   padding: 1rem 1.125rem;

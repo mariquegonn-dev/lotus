@@ -28,7 +28,6 @@ const Sexo = () => {
           <p className="error">Selecione um sexo antes de avançar.</p>
         )}
 
-        <p>teste</p>
         <Button
           text="PRÓX"
           onClick={(e) => {

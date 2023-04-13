@@ -40,3 +40,14 @@
     position: relative;
   }
 }
+
+@media (max-width: 400px) {
+  .stepsList {
+    width: 12px;
+  }
+
+  .step {
+    padding: 8px 12px;
+    font-size: 1rem;
+  }
+}

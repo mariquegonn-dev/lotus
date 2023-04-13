@@ -1,16 +1,7 @@
 import React from "react";
 import styles from "./styles.module.css";
 
-const index = ({
-  label,
-  desc,
-  name,
-  value,
-  onChange,
-  onClick,
-  options,
-  children,
-}) => {
+const index = ({ label, desc, name, value, onChange, onClick, children }) => {
   return (
     <>
       <label className={styles.label} htmlFor={name}>
