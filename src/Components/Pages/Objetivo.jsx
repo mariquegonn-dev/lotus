@@ -18,7 +18,9 @@ const Objetivo = () => {
           desc="Especifique o seu nível de atividade física."
           value={objetivo === null ? "" : objetivo}
           onChange={({ target }) => handleData("objetivo", target.value)}
-          onClick={({ target }) => (target[0].disabled = "true")}
+          onClick={({ target }) => {
+            objetivo !== null ? (target[0].disabled = "true") : null;
+          }}
         >
           <option>Selecione</option>
           <option value="perder">perder peso</option>

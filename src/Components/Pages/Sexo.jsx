@@ -18,7 +18,9 @@ const Sexo = () => {
           name="sexo"
           value={sexo === null ? "" : sexo}
           onChange={({ target }) => handleData("sexo", target.value)}
-          onClick={({ target }) => (target[0].disabled = "true")}
+          onClick={({ target }) => {
+            sexo !== null ? (target[0].disabled = "true") : null;
+          }}
         >
           <option>Selecione</option>
           <option value="masculino">Masculino</option>

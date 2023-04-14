@@ -8,23 +8,40 @@ import Input from "../Input/InputSelect";
 const AtividadeFisica = () => {
   const { data, handleData, error, setError } = useContext(CustomerContext);
   const { step, atividadeFisica } = data;
+  const [active, setActive] = React.useState();
 
-  function handleFunction() {
-    switch (atividadeFisica) {
-      case "sedentario":
-        return "Pratica pouca ou nenhuma atividade física relevante.";
-      case "leveAtivo":
-        return "Pratica pouca ou alguma atividade física, 1-3 dias por semana.";
-      case "ativo":
-        return "Pratica atividade física regularmente, de 3-5 dias por semana.";
-      case "muitoAtivo":
-        return "Pratica muita atividade física, 6-7 dias por semana.";
-      case "extremeAtivo":
-        return "Pratica muita atividade física, 2x por dia ou mais, todos ou quase todos os dias da semana.";
-      default:
-        return "Selecione uma opção para saber sua descrição.";
-    }
-  }
+  const atividadeArray = [
+    {
+      label: "Selecione",
+      value: null,
+      desc: "Selecione um dos níveis para saber suas descrição.",
+    },
+    {
+      label: "Sedentário",
+      value: "sedentario",
+      desc: "Pratica pouca ou nenhuma atividade física relevante.",
+    },
+    {
+      label: "Levemente ativo",
+      value: "leveAtivo",
+      desc: "Pratica pouca ou alguma atividade física, 1-3 dias por semana.",
+    },
+    {
+      label: "Ativo",
+      value: "ativo",
+      desc: "Pratica atividade física regularmente, de 3-5 dias por semana.",
+    },
+    {
+      label: "Muito ativo",
+      value: "muitoAtivo",
+      desc: "Pratica muita atividade física, 6-7 dias por semana.",
+    },
+    {
+      label: "Extremamente ativo",
+      value: "extremeAtivo",
+      desc: "Pratica muita atividade física, 2x por dia ou mais, todos ou quase todos os dias da semana.",
+    },
+  ];
 
   return (
     <div className={`animeLeft ${styles.content}`}>
@@ -34,20 +51,33 @@ const AtividadeFisica = () => {
           label="Qual o seu nível de atividade física?"
           desc="Especifique o seu nível de atividade física."
           value={atividadeFisica === null ? "" : atividadeFisica}
-          onChange={({ target }) => handleData("atividadeFisica", target.value)}
-          onClick={({ target }) => (target[0].disabled = "true")}
+          onChange={({ target }) => {
+            handleData("atividadeFisica", target.value);
+            setActive(target.value);
+          }}
+          onClick={({ target }) => {
+            atividadeFisica !== null ? (target[0].disabled = "true") : null;
+          }}
         >
-          <option>Selecione</option>
-          <option value="sedentario">Sedentário</option>
-          <option value="leveAtivo">Levemente ativo</option>
-          <option value="ativo">Moderamente ativo</option>
-          <option value="muitoAtivo">Muito ativo</option>
-          <option value="extremeAtivo">Extremamente ativo</option>
+          {atividadeArray?.map(({ label, value }, id) => (
+            <option key={id} value={value}>
+              {label}
+            </option>
+          ))}
         </Input>
 
-        {atividadeFisica !== null && (
-          <p className={styles.atividadeFisicaDesc}>{handleFunction()}</p>
-        )}
+        {atividadeArray?.map(({ desc, value }, id) => (
+          <p
+            key={id}
+            className={
+              active === value
+                ? `${styles.atividadeFisicaDesc} ${styles.active}`
+                : styles.atividadeFisicaDesc
+            }
+          >
+            {desc}
+          </p>
+        ))}
 
         {error && atividadeFisica === null && (
           <p className="error">Escolha um nível antes de avançar.</p>
