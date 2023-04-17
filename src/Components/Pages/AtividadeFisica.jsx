@@ -8,13 +8,13 @@ import Input from "../Input/InputSelect";
 const AtividadeFisica = () => {
   const { data, handleData, error, setError } = useContext(CustomerContext);
   const { step, atividadeFisica } = data;
-  const [active, setActive] = React.useState();
+  const [active, setActive] = React.useState("selecione");
 
   const atividadeArray = [
     {
       label: "Selecione",
-      value: null,
-      desc: "Selecione um dos níveis para saber suas descrição.",
+      value: "selecione",
+      desc: "Selecione um dos níveis para saber sua descrição.",
     },
     {
       label: "Sedentário",
@@ -47,6 +47,7 @@ const AtividadeFisica = () => {
     <div className={`animeLeft ${styles.content}`}>
       <form className={styles.form}>
         <Input
+          className="input100"
           name="atividadeFisica"
           label="Qual o seu nível de atividade física?"
           desc="Especifique o seu nível de atividade física."

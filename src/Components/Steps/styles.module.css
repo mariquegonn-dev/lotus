@@ -1,53 +1,115 @@
-.steps {
-  display: flex;
-  padding: 20px;
-  gap: 10px;
-  align-items: center;
-}
-
-.step {
-  padding: 12px 16px;
-  background: var(--cor-blue);
-  border-radius: 50px;
-  color: white;
-  font: 700 1.125rem/1 Arial;
-  pointer-events: none;
-}
-
 .stepsContent {
   display: flex;
-  gap: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.19);
+  border-radius: 16px;
 }
 
-.stepsList {
-  width: 44px;
-  height: 4px;
-  background: var(--cor-blueLight);
-  border-radius: 0.8rem;
+.steps {
+  display: flex;
+  padding: 12px;
+  gap: 10px;
+  align-items: center;
   position: relative;
 }
 
-.stepsList.active {
-  background: var(--cor-blue);
+.icon {
+  background: none;
+  display: flex;
+  padding: 7px;
+  border-radius: 20px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s;
+}
+
+.icon.active {
+  background: var(--cor-bgIcon);
+}
+
+.icon svg path {
+  fill: var(--cor-iconDisable);
+}
+
+.icon.active svg path {
+  fill: var(--cor-white);
+}
+
+.title {
+  font: 500 1rem "Barlow";
+}
+
+.stepTitle {
+  color: var(--cor-bgIcon);
+  font: 500 0.75rem "Barlow";
+}
+
+.icon:hover {
+  background: var(--cor-bgHover);
+  transition: 0.3s;
+}
+
+.icon:hover svg path {
+  fill: var(--cor-iconDisable);
+}
+
+.iconDesc {
+  display: none;
+}
+
+.iconDesc.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.icon::after {
+  content: "";
+  width: 1px;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  left: -13px;
+}
+
+.teste {
+  background: red;
+}
+
+.titleHover {
+  display: none;
+  position: absolute;
+  top: -43px;
+  background: var(--cor-iconDisable);
+  border-radius: 16px;
+  padding: 6px 12px;
+  left: -15px;
+  color: white;
+}
+
+.titleHover::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--cor-iconDisable);
+  position: absolute;
+  display: block;
+  bottom: -3px;
+  left: 30%;
+  transform: rotate(45deg);
+}
+
+.icon:hover .titleHover {
+  display: block;
 }
 
 @media (max-width: 700px) {
-  .stepsList {
-    width: 22px;
-    height: 4px;
-    background: var(--cor-blueLight);
-    border-radius: 0.8rem;
-    position: relative;
+  .stepsContent {
+    flex-wrap: wrap;
   }
-}
-
-@media (max-width: 400px) {
-  .stepsList {
-    width: 12px;
+  .iconDesc.active {
+    display: none;
   }
-
-  .step {
-    padding: 8px 12px;
-    font-size: 1rem;
+  .icon svg {
+    width: 18px;
+    height: 18px;
   }
 }

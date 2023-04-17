@@ -10,7 +10,7 @@ import { CustomerContext } from "./createAppContext";
 
 export const CustomerProvider = ({ children }) => {
   const [data, setData] = React.useState({
-    step: 0,
+    step: 1,
     sexo: null,
     idade: "",
     altura: "",
@@ -21,21 +21,23 @@ export const CustomerProvider = ({ children }) => {
 
   const [error, setError] = React.useState(false);
 
+  const StepsArray = [1, 2, 3, 4, 5, 6, 7];
+
   const handleContent = () => {
     switch (data.step) {
-      case 0:
-        return <Sexo />;
       case 1:
-        return <Idade />;
+        return <Sexo />;
       case 2:
-        return <Altura />;
+        return <Idade />;
       case 3:
-        return <Peso />;
+        return <Altura />;
       case 4:
-        return <AtividadeFisica />;
+        return <Peso />;
       case 5:
-        return <Objetivo />;
+        return <AtividadeFisica />;
       case 6:
+        return <Objetivo />;
+      case 7:
         return <Resultado />;
       default:
         return <Sexo />;
@@ -51,7 +53,7 @@ export const CustomerProvider = ({ children }) => {
 
   return (
     <CustomerContext.Provider
-      value={{ handleContent, handleData, data, error, setError }}
+      value={{ handleContent, handleData, data, StepsArray, error, setError }}
     >
       {children}
     </CustomerContext.Provider>

@@ -1,7 +1,16 @@
 import React from "react";
 import styles from "./styles.module.css";
 
-const index = ({ label, desc, name, value, onChange, onClick, children }) => {
+const index = ({
+  label,
+  desc,
+  name,
+  value,
+  onChange,
+  onClick,
+  children,
+  className,
+}) => {
   return (
     <>
       <label className={styles.label} htmlFor={name}>
@@ -9,7 +18,7 @@ const index = ({ label, desc, name, value, onChange, onClick, children }) => {
       </label>
       <p className={styles.desc}>{desc}</p>
       <select
-        className={styles.select}
+        className={className ? `${styles.select} ${className}` : styles.select}
         name={name}
         id={name}
         value={value}

@@ -31,5 +31,5 @@
 }
 
 .input:focus {
-  border-color: var(--cor-blue);
+  border-color: var(--cor-bgIcon);
 }

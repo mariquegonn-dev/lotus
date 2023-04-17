@@ -2,10 +2,14 @@
 
 :root {
   --cor-divider: #d9d9d9;
+  --cor-white: #fff;
   --cor-black: #333;
   --cor-blue: #2985f7;
   --cor-blue2: #0444e2;
   --cor-blueLight: #dbe2fb;
+  --cor-bgIcon: #6265d8;
+  --cor-bgHover: #f9f9fb;
+  --cor-iconDisable: #8687a8;
 }
 
 * {
@@ -71,5 +75,25 @@ input[type="number"]::-webkit-outer-spin-button {
   to {
     transform: initial;
     opacity: 1;
+  }
+}
+
+.teste2 path {
+  fill: #fa5b54;
+}
+
+.input100 {
+  width: 90% !important;
+}
+
+@media (max-width: 700px) {
+  .input100 {
+    width: 70% !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .input100 {
+    width: 90% !important;
   }
 }

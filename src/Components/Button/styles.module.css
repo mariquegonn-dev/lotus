@@ -1,7 +1,7 @@
 .button {
   border: none;
   cursor: pointer;
-  background: var(--cor-blue);
+  background: var(--cor-bgIcon);
   transition: 0.2s;
   display: flex;
   align-items: center;
@@ -33,5 +33,5 @@
 }
 
 .button:hover {
-  background: var(--cor-blue2);
+  background: #6235e3;
 }

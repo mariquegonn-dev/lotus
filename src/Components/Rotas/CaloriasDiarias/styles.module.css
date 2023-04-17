@@ -26,14 +26,24 @@
 
 .title::after {
   content: ".";
-  color: var(--cor-blue);
+  color: var(--cor-bgIcon);
 }
 
 .content {
-  background: rgba(234, 33, 238, 0.05);
+  width: 720px;
+  height: 450px;
+  border: 1px solid rgba(0, 0, 0, 0.19);
+  box-shadow: 0 1px 3px 0 #6265d8;
   padding: 20px;
   border-radius: 0.3rem;
   display: grid;
   justify-items: center;
   align-items: start;
+}
+
+@media (max-width: 750px) {
+  .content {
+    width: initial;
+    height: initial;
+  }
 }
