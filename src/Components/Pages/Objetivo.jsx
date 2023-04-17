@@ -14,8 +14,8 @@ const Objetivo = () => {
       <form className={styles.form}>
         <Input
           name="objetivo"
-          label="Qual o seu nível de atividade física?"
-          desc="Especifique o seu nível de atividade física."
+          label="Qual o seu objetivo?"
+          desc="Especifique o seu objetivo abaixo."
           value={objetivo === null ? "" : objetivo}
           onChange={({ target }) => handleData("objetivo", target.value)}
           onClick={({ target }) => {
