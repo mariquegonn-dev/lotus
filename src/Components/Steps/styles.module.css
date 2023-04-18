@@ -17,7 +17,6 @@
   display: flex;
   padding: 7px;
   border-radius: 20px;
-  cursor: pointer;
   position: relative;
   transition: 0.2s;
 }
