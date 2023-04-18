@@ -22,7 +22,7 @@ const AtividadeFisica = () => {
       desc: "Pratica pouca ou nenhuma atividade física relevante.",
     },
     {
-      label: "Levemente ativo",
+      label: "Levemente Ativo",
       value: "leveAtivo",
       desc: "Pratica pouca ou alguma atividade física, 1-3 dias por semana.",
     },
@@ -32,12 +32,12 @@ const AtividadeFisica = () => {
       desc: "Pratica atividade física regularmente, de 3-5 dias por semana.",
     },
     {
-      label: "Muito ativo",
+      label: "Muito Ativo",
       value: "muitoAtivo",
       desc: "Pratica muita atividade física, 6-7 dias por semana.",
     },
     {
-      label: "Extremamente ativo",
+      label: "Extremamente Ativo",
       value: "extremeAtivo",
       desc: "Pratica muita atividade física, 2x por dia ou mais, todos ou quase todos os dias da semana.",
     },

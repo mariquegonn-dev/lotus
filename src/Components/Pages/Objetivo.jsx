@@ -23,9 +23,9 @@ const Objetivo = () => {
           }}
         >
           <option>Selecione</option>
-          <option value="perder">perder peso</option>
-          <option value="manter">manter peso</option>
-          <option value="ganhar">ganhar peso</option>
+          <option value="perder">Perder Peso</option>
+          <option value="manter">Manter Peso</option>
+          <option value="ganhar">Ganhar Peso</option>
         </Input>
 
         {error && objetivo === null && (
