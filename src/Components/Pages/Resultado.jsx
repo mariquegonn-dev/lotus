@@ -59,6 +59,10 @@ const Resultado = () => {
       (objetivo === "ganhar" && ganharPeso),
   };
 
+  React.useEffect(() => {
+    window.localStorage.setItem("caloriasDiarias", objetivos.calorias);
+  }, [objetivos.calorias]);
+
   return (
     <div className={`animeLeft ${styles.content}`}>
       <div className={styles.form}>
