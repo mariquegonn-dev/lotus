@@ -6,6 +6,13 @@
   border-bottom: 1px solid var(--cor-divider);
 }
 
+.logo {
+  font: 400 2rem/1 "ABeeZee";
+  font-style: italic;
+  text-transform: uppercase;
+  color: var(--cor-black);
+}
+
 .nav {
   display: flex;
   gap: 40px;
@@ -19,7 +26,7 @@
 }
 
 .nav li a:hover {
-  color: var(--cor-blue);
+  color: var(--cor-bgIcon);
 }
 
 .mobileButton {
@@ -103,6 +110,11 @@
   color: var(--cor-black);
 }
 
-.navMobile li a:hover {
+.navMobile li a:hover,
+.change:hover {
   color: var(--cor-bgIcon);
+}
+
+.change {
+  cursor: pointer;
 }

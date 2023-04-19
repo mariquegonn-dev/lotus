@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee:ital@1&display=swap");
 
 :root {
   --cor-divider: #d9d9d9;
@@ -10,6 +11,22 @@
   --cor-bgIcon: #6265d8;
   --cor-bgHover: #f9f9fb;
   --cor-iconDisable: #8687a8;
+  --cor-rgba: rgba(0, 0, 0, 0.19);
+  --cor-select: #333;
+}
+
+:root.active {
+  --cor-divider: #d9d9d9;
+  --cor-white: #333;
+  --cor-black: #f7f7f7;
+  --cor-blue: #2985f7;
+  --cor-blue2: #0444e2;
+  --cor-blueLight: rgba(162, 132, 247, 0.5);
+  --cor-bgIcon: #a284f7;
+  --cor-bgHover: #8687a8;
+  --cor-iconDisable: #f9f9fb;
+  --cor-rgba: rgba(162, 132, 247, 0.5);
+  --cor-select: #c7d7c7;
 }
 
 * {
@@ -21,6 +38,7 @@ body {
   padding: 0;
   font-family: "Barlow";
   color: var(--cor-black);
+  background: var(--cor-white);
 }
 
 h1,

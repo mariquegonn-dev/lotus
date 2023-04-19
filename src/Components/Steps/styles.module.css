@@ -1,6 +1,6 @@
 .stepsContent {
   display: flex;
-  border: 1px solid rgba(0, 0, 0, 0.19);
+  border: 1px solid var(--cor-rgba);
   border-radius: 16px;
 }
 

@@ -11,15 +11,17 @@
 .select {
   outline: none;
   width: 70%;
-  border: 1px solid var(--cor-blueLight);
+  border: 1px solid rgba(162, 132, 247, 0.5);
   border-radius: 0.3rem;
   padding: 1rem 1.125rem;
   font-size: 1.125rem;
   appearance: none;
   background: url("../../../assets/down.svg") no-repeat right;
   background-position-x: 90%;
+  color: var(--cor-select);
 }
 
 .select:focus {
   border-color: var(--cor-bgIcon);
+  color: #111;
 }
