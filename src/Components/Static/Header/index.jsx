@@ -3,26 +3,17 @@ import styles from "./styles.module.css";
 import { NavLink, useLocation } from "react-router-dom";
 import useMedia from "../../../Hooks/useMedia";
 import OutsideClickHandler from "react-outside-click-handler";
+import DarkTheme from "../../DarkTheme/DarkTheme";
 
 const index = () => {
   const mobile = useMedia("(max-width:40rem)");
   const [mobileMenu, setMobileMenu] = React.useState(false);
-  const [change, setChange] = React.useState(false);
-  const root = document.documentElement;
 
   const { pathname } = useLocation();
 
   React.useEffect(() => {
     setMobileMenu(false);
   }, [pathname]);
-
-  React.useEffect(() => {
-    if (change) {
-      root.classList.add("active");
-    } else {
-      root.classList.remove("active");
-    }
-  }, [change]);
 
   return (
     <>
@@ -31,19 +22,24 @@ const index = () => {
           <h1 className={styles.logo}>Lotus</h1>
         </NavLink>
         {mobile && (
-          <OutsideClickHandler onOutsideClick={() => setMobileMenu(false)}>
-            <button
-              className={`${styles.mobileButton} ${
-                mobileMenu && styles.active
-              }`}
-              aria-label="Menu"
-              onClick={(e) => {
-                e.preventDefault();
-                setMobileMenu(!mobileMenu);
-              }}
-            ></button>
-          </OutsideClickHandler>
+          <div className={styles.menuMobile}>
+            <DarkTheme />
+
+            <OutsideClickHandler onOutsideClick={() => setMobileMenu(false)}>
+              <button
+                className={`${styles.mobileButton} ${
+                  mobileMenu && styles.active
+                }`}
+                aria-label="Menu"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMobileMenu(!mobileMenu);
+                }}
+              ></button>
+            </OutsideClickHandler>
+          </div>
         )}
+
         <ul
           className={`${mobile ? styles.navMobile : styles.nav} ${
             mobileMenu && styles.navMobileActive
@@ -56,9 +52,7 @@ const index = () => {
             <NavLink to="macronutrientes">Macronutrientes</NavLink>
           </li>
           <li>
-            <p onClick={() => setChange(!change)} className={styles.change}>
-              Change
-            </p>
+            <DarkTheme className={styles.DarkTheme} />
           </li>
         </ul>
       </header>

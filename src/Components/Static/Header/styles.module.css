@@ -83,7 +83,7 @@
   top: 80px;
   right: 0px;
   padding: 0 1rem;
-  background: white;
+  background: var(--cor-bgMenu);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   border-radius: 0.2rem;
   transform: translateX(-10px);
@@ -104,17 +104,24 @@
   align-items: center;
   width: 100%;
   border: none;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--cor-dividerMenu);
   padding: 0.5rem 0;
   cursor: pointer;
-  color: var(--cor-black);
+  color: var(--cor-text);
 }
 
-.navMobile li a:hover,
-.change:hover {
+.navMobile li a:hover {
   color: var(--cor-bgIcon);
 }
 
-.change {
-  cursor: pointer;
+.menuMobile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .DarkTheme {
+    display: none !important;
+  }
 }

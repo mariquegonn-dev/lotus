@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=ABeeZee:ital@1&display=swap");
 
-:root {
+:rootbackup {
+  --cor-bgTheme: #2b2a2c;
+  --cor-iconTheme: #ebeaec;
   --cor-divider: #d9d9d9;
   --cor-white: #fff;
   --cor-black: #333;
@@ -15,8 +17,31 @@
   --cor-select: #333;
 }
 
-:root.active {
+:root {
+  --cor-text: #333;
+  --cor-bgMenu: #fff;
+  --cor-dividerMenu: #ccc;
+  --cor-iconHover: #8687a8;
+  --cor-bgTheme: #2b2a2c;
+  --cor-iconTheme: #ebeaec;
   --cor-divider: #d9d9d9;
+  --cor-white: #fff;
+  --cor-black: #333;
+  --cor-blueLight: #dbe2fb;
+  --cor-bgIcon: #6265d8;
+  --cor-bgHover: #f9f9fb;
+  --cor-iconDisable: #8687a8;
+  --cor-rgba: rgba(0, 0, 0, 0.19);
+}
+
+[data-theme="dark"] {
+  --cor-text: #ebeaec;
+  --cor-bgMenu: #303136;
+  --cor-dividerMenu: #11111167;
+  --cor-iconHover: #111;
+  --cor-bgTheme: #ebeaec;
+  --cor-iconTheme: #2b2a2c;
+  --cor-divider: #11111167;
   --cor-white: #080016;
   --cor-black: #f7f7f7;
   --cor-blue: #2985f7;
@@ -26,7 +51,6 @@
   --cor-bgHover: #8687a8;
   --cor-iconDisable: #f9f9fb;
   --cor-rgba: rgba(162, 132, 247, 0.5);
-  --cor-select: #c7d7c7;
 }
 
 * {
