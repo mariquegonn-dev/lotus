@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./styles.module.css";
 import "@lottiefiles/lottie-player";
 import Head from "../Head";
+import { Link } from "react-router-dom";
 
 const index = () => {
   return (
@@ -21,7 +22,6 @@ const index = () => {
             <span className={styles.span}>GRATUITAMENTE</span>.
           </p>
           <p>Navegue entre os links do menu para mais informações.</p>
-          <div></div>
         </div>
       </div>
 
