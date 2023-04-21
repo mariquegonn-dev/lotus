@@ -105,9 +105,11 @@
   width: 100%;
   border: none;
   border-bottom: 1px solid var(--cor-dividerMenu);
-  padding: 0.5rem 0;
+  padding: 0.8rem 0;
   cursor: pointer;
   color: var(--cor-text);
+  font-size: 18px;
+  gap: 10px;
 }
 
 .navMobile li a:hover {
@@ -118,6 +120,10 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.iconColor path {
+  fill: var(--cor-text);
 }
 
 @media (max-width: 640px) {

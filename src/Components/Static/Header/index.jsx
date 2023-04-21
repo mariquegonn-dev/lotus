@@ -4,6 +4,8 @@ import { NavLink, useLocation } from "react-router-dom";
 import useMedia from "../../../Hooks/useMedia";
 import OutsideClickHandler from "react-outside-click-handler";
 import DarkTheme from "../../DarkTheme/DarkTheme";
+import Calorias from "../../../assets/menu/Calorias";
+import Macro from "../../../assets/menu/Macro";
 
 const index = () => {
   const mobile = useMedia("(max-width:40rem)");
@@ -46,10 +48,15 @@ const index = () => {
           }`}
         >
           <li>
-            <NavLink to="caloriasDiarias">Calorias diárias</NavLink>
+            <NavLink to="caloriasDiarias">
+              {mobile && <Calorias className={styles.iconColor} />}Calorias
+              diárias
+            </NavLink>
           </li>
           <li>
-            <NavLink to="macronutrientes">Macronutrientes</NavLink>
+            <NavLink to="macronutrientes">
+              {mobile && <Macro className={styles.iconColor} />} Macronutrientes
+            </NavLink>
           </li>
           <li>
             <DarkTheme className={styles.DarkTheme} />

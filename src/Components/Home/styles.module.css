@@ -1,0 +1,40 @@
+.main {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 40px 16px;
+  gap: 40px;
+  align-items: center;
+}
+
+.mainLeft {
+  display: grid;
+  gap: 20px;
+  max-width: 720px;
+}
+
+.title {
+  font: 400 2.5rem/1 "Barlow";
+}
+
+.mainLeft p {
+  font: 400 1.125rem/1 "Barlow";
+}
+
+.subLeft {
+  display: grid;
+  gap: 10px;
+}
+
+.span {
+  color: var(--cor-bgIcon);
+}
+
+@media (max-width: 920px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+  .lottie {
+    display: grid;
+    justify-items: center;
+  }
+}
