@@ -2,9 +2,12 @@ import React from "react";
 import styles from "./styles.module.css";
 import "@lottiefiles/lottie-player";
 import Head from "../Head";
-import { Link } from "react-router-dom";
+import useMedia from "../../Hooks/useMedia";
 
 const index = () => {
+  const mobile = useMedia("(max-width: 450px)");
+  const width = mobile ? "300px" : "400px";
+
   return (
     <section className={styles.main}>
       <Head
@@ -30,7 +33,7 @@ const index = () => {
           src="https://assets6.lottiefiles.com/packages/lf20_ocGoFt.json"
           background="transparent"
           speed="1"
-          style={{ width: "400px", height: "400px" }}
+          style={{ width: { width }, height: { width } }}
           loop
           autoplay
         ></lottie-player>
