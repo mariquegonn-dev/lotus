@@ -4,10 +4,14 @@ import Button from "../Button";
 import Input from "../Input/InputDigit";
 import PesoImg from "../../assets/png/peso.png";
 import { CustomerContext } from "../../Context/createAppContext";
+import { useDispatch, useSelector } from "react-redux";
+import { pesoUser, stepUser } from "../../redux/user/actions";
 
 const Peso = () => {
-  const { handleData, data, error, setError } = useContext(CustomerContext);
-  const { peso, step } = data;
+  const { error, setError } = useContext(CustomerContext);
+  const { step, peso } = useSelector((rootReducer) => rootReducer.userReducer);
+  const dispatch = useDispatch();
+
   return (
     <div className={`animeLeft ${styles.content}`}>
       <form className={styles.form}>
@@ -18,7 +22,7 @@ const Peso = () => {
           desc="Especifique o seu peso em quilogramas (kg)"
           value={peso === "" ? "" : peso}
           placeholder={peso !== "" ? "" : 70}
-          onChange={({ target }) => handleData("peso", target.value)}
+          onChange={({ target }) => dispatch(pesoUser(target.value))}
           auxiliar="kg"
         />
 
@@ -32,7 +36,7 @@ const Peso = () => {
             text="ANTE"
             onClick={(e) => {
               e.preventDefault();
-              handleData("step", step - 1);
+              dispatch(stepUser(step - 1));
             }}
           />
 
@@ -42,7 +46,7 @@ const Peso = () => {
               e.preventDefault();
               if (peso !== "") {
                 if (step !== 7) {
-                  handleData("step", step + 1);
+                  dispatch(stepUser(step + 1));
                   setError(false);
                 }
               } else setError(true);

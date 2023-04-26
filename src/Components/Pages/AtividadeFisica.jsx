@@ -4,10 +4,17 @@ import atividadeFisicaImg from "../../assets/png/atividadeFisica.png";
 import { CustomerContext } from "../../Context/createAppContext";
 import Button from "../Button";
 import Input from "../Input/InputSelect";
+import { useDispatch, useSelector } from "react-redux";
+import { atvFisicaUser, stepUser } from "../../redux/user/actions";
 
 const AtividadeFisica = () => {
-  const { data, handleData, error, setError } = useContext(CustomerContext);
-  const { step, atividadeFisica } = data;
+  const { error, setError } = useContext(CustomerContext);
+  const { step, atividadeFisica } = useSelector(
+    (rootReducer) => rootReducer.userReducer
+  );
+
+  const dispatch = useDispatch();
+
   const [active, setActive] = React.useState("selecione");
 
   const atividadeArray = [
@@ -53,7 +60,7 @@ const AtividadeFisica = () => {
           desc="Especifique o seu nível de atividade física."
           value={atividadeFisica === null ? "" : atividadeFisica}
           onChange={({ target }) => {
-            handleData("atividadeFisica", target.value);
+            dispatch(atvFisicaUser(target.value));
             setActive(target.value);
           }}
           onClick={({ target }) => {
@@ -90,7 +97,7 @@ const AtividadeFisica = () => {
             text="ANTE"
             onClick={(e) => {
               e.preventDefault();
-              handleData("step", step - 1);
+              dispatch(stepUser(step - 1));
             }}
           />
 
@@ -100,7 +107,7 @@ const AtividadeFisica = () => {
               e.preventDefault();
               if (atividadeFisica !== null) {
                 if (step !== 7) {
-                  handleData("step", step + 1);
+                  dispatch(stepUser(step + 1));
                   setError(false);
                 }
               } else setError(true);

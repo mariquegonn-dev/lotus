@@ -4,10 +4,15 @@ import ObjetivoImg from "../../assets/png/objetivo.png";
 import { CustomerContext } from "../../Context/createAppContext";
 import Button from "../Button";
 import Input from "../Input/InputSelect";
+import { useDispatch, useSelector } from "react-redux";
+import { objetivoUser, stepUser } from "../../redux/user/actions";
 
 const Objetivo = () => {
-  const { data, handleData, error, setError } = useContext(CustomerContext);
-  const { step, objetivo } = data;
+  const { error, setError } = useContext(CustomerContext);
+  const { step, objetivo } = useSelector(
+    (rootReducer) => rootReducer.userReducer
+  );
+  const dispatch = useDispatch();
 
   return (
     <div className={`animeLeft ${styles.content}`}>
@@ -17,7 +22,7 @@ const Objetivo = () => {
           label="Qual o seu objetivo?"
           desc="Especifique o seu objetivo abaixo."
           value={objetivo === null ? "" : objetivo}
-          onChange={({ target }) => handleData("objetivo", target.value)}
+          onChange={({ target }) => dispatch(objetivoUser(target.value))}
           onClick={({ target }) => {
             objetivo !== null ? (target[0].disabled = "true") : null;
           }}
@@ -38,7 +43,7 @@ const Objetivo = () => {
             text="ANTE"
             onClick={(e) => {
               e.preventDefault();
-              handleData("step", step - 1);
+              dispatch(stepUser(step - 1));
             }}
           />
 
@@ -48,7 +53,7 @@ const Objetivo = () => {
               e.preventDefault();
               if (objetivo !== null) {
                 if (step !== 7) {
-                  handleData("step", step + 1);
+                  dispatch(stepUser(step + 1));
                   setError(false);
                 }
               } else setError(true);

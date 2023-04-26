@@ -4,10 +4,15 @@ import Button from "../Button";
 import Input from "../Input/InputSelect";
 import SexoImg from "../../assets/png/sexo.png";
 import { CustomerContext } from "../../Context/createAppContext";
+import { useSelector, useDispatch } from "react-redux";
+import { sexoUser, stepUser } from "../../redux/user/actions";
 
 const Sexo = () => {
-  const { data, handleData, error, setError } = useContext(CustomerContext);
-  const { step, sexo } = data;
+  const { error, setError } = useContext(CustomerContext);
+
+  const { sexo, step } = useSelector((rootReducer) => rootReducer.userReducer);
+
+  const dispatch = useDispatch();
 
   return (
     <div className={`animeLeft ${styles.content}`}>
@@ -17,7 +22,9 @@ const Sexo = () => {
           desc="Especifique o seu sexo."
           name="sexo"
           value={sexo === null ? "" : sexo}
-          onChange={({ target }) => handleData("sexo", target.value)}
+          onChange={({ target }) => {
+            dispatch(sexoUser(target.value));
+          }}
           onClick={({ target }) => {
             sexo !== null ? (target[0].disabled = "true") : null;
           }}
@@ -26,6 +33,7 @@ const Sexo = () => {
           <option value="masculino">Masculino</option>
           <option value="feminino">Feminino</option>
         </Input>
+
         {error && sexo === null && (
           <p className="error">Selecione um sexo antes de avançar.</p>
         )}
@@ -36,7 +44,7 @@ const Sexo = () => {
             e.preventDefault();
             if (sexo !== null) {
               if (step !== 7) {
-                handleData("step", step + 1);
+                dispatch(stepUser(step + 1));
                 setError(false);
               }
             } else setError(true);

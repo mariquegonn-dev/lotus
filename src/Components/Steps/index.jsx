@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import styles from "./styles.module.css";
-import { CustomerContext } from "../../Context/createAppContext";
 import Sexo from "../../assets/Steps/Sexo";
 import Idade from "../../assets/Steps/Idade";
 import Altura from "../../assets/Steps/Altura";
@@ -8,12 +7,10 @@ import Peso from "../../assets/Steps/Peso";
 import AtividadeFisica from "../../assets/Steps/AtividadeFisica";
 import Objetivo from "../../assets/Steps/Objetivo";
 import Resultado from "../../assets/Steps/Resultado";
+import { useSelector } from "react-redux";
 
 const index = () => {
-  const { data } = useContext(CustomerContext);
-  const { step } = data;
-
-  const StepsArray = [1, 2, 3, 4, 5, 6, 7];
+  const { step } = useSelector((rootReducer) => rootReducer.userReducer);
 
   const steps = [
     {

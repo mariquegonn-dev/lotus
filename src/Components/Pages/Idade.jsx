@@ -4,10 +4,15 @@ import IdadeImg from "../../assets/png/idade.png";
 import { CustomerContext } from "../../Context/createAppContext";
 import Button from "../Button";
 import Input from "../Input/InputDigit";
+import { useDispatch, useSelector } from "react-redux";
+import { idadeUser, stepUser } from "../../redux/user/actions";
 
 const Idade = () => {
-  const { data, handleData, error, setError } = useContext(CustomerContext);
-  const { step, idade } = data;
+  const { error, setError } = useContext(CustomerContext);
+
+  const { step, idade } = useSelector((rootReducer) => rootReducer.userReducer);
+
+  const dispatch = useDispatch();
 
   return (
     <div className={`animeLeft ${styles.content}`}>
@@ -19,7 +24,7 @@ const Idade = () => {
           desc="Especifique a sua idade."
           value={idade === "" ? "" : idade}
           placeholder={idade !== "" ? "" : 22}
-          onChange={({ target }) => handleData("idade", target.value)}
+          onChange={({ target }) => dispatch(idadeUser(target.value))}
           auxiliar="anos"
         />
 
@@ -33,7 +38,7 @@ const Idade = () => {
             text="ANTE"
             onClick={(e) => {
               e.preventDefault();
-              handleData("step", step - 1);
+              dispatch(stepUser(step - 1));
             }}
           />
 
@@ -43,7 +48,7 @@ const Idade = () => {
               e.preventDefault();
               if (idade !== "") {
                 if (step !== 7) {
-                  handleData("step", step + 1);
+                  dispatch(stepUser(step + 1));
                   setError(false);
                 }
               } else setError(true);

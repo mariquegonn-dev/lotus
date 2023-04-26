@@ -1,15 +1,19 @@
-import React, { useContext } from "react";
+import React from "react";
 import styles from "./Pages.module.css";
 import perderPeso from "../../assets/png/perder.png";
 import manterPeso from "../../assets/png/manter.png";
 import ganharPeso from "../../assets/png/ganhar.png";
 import stylesInput from "../Input/InputDigit/styles.module.css";
 import Button from "../Button";
-import { CustomerContext } from "../../Context/createAppContext";
+import { useDispatch, useSelector } from "react-redux";
+import { stepUser } from "../../redux/user/actions";
 
 const Resultado = () => {
-  const { handleData, data } = useContext(CustomerContext);
-  const { sexo, altura, idade, objetivo, atividadeFisica, peso, step } = data;
+  const { sexo, altura, idade, objetivo, atividadeFisica, peso, step } =
+    useSelector((rootReducer) => rootReducer.userReducer);
+
+  const dispatch = useDispatch();
+
   const [tmb, setTmb] = React.useState(0);
   const [tdee, setTdee] = React.useState(0);
 
@@ -77,7 +81,7 @@ const Resultado = () => {
           side="left"
           onClick={(e) => {
             e.preventDefault();
-            handleData("step", step - 1);
+            dispatch(stepUser(step - 1));
           }}
         />
       </div>

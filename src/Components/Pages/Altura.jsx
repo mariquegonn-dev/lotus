@@ -4,10 +4,16 @@ import Button from "../Button";
 import Input from "../Input/InputDigit";
 import AlturaImg from "../../assets/png/altura.png";
 import { CustomerContext } from "../../Context/createAppContext";
+import { useDispatch, useSelector } from "react-redux";
+import { alturaUser, stepUser } from "../../redux/user/actions";
 
 const Altura = () => {
-  const { handleData, data, error, setError } = useContext(CustomerContext);
-  const { altura, step } = data;
+  const { error, setError } = useContext(CustomerContext);
+  const { step, altura } = useSelector(
+    (rootReducer) => rootReducer.userReducer
+  );
+  const dispatch = useDispatch();
+
   return (
     <div className={`animeLeft ${styles.content}`}>
       <form className={styles.form}>
@@ -18,7 +24,7 @@ const Altura = () => {
           desc="Especifique a sua altura em centímetros (cm)"
           value={altura === "" ? "" : altura}
           placeholder={altura !== "" ? "" : 175}
-          onChange={({ target }) => handleData("altura", target.value)}
+          onChange={({ target }) => dispatch(alturaUser(target.value))}
           auxiliar="cm"
         />
 
@@ -32,7 +38,7 @@ const Altura = () => {
             text="ANTE"
             onClick={(e) => {
               e.preventDefault();
-              handleData("step", step - 1);
+              dispatch(stepUser(step - 1));
             }}
           />
 
@@ -42,7 +48,7 @@ const Altura = () => {
               e.preventDefault();
               if (altura !== "") {
                 if (step !== 7) {
-                  handleData("step", step + 1);
+                  dispatch(stepUser(step + 1));
                   setError(false);
                 }
               } else setError(true);
