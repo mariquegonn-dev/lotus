@@ -1,5 +1,10 @@
 import UserActionTypes from "./action-types";
 
+export const errorUser = (payload) => ({
+  type: UserActionTypes.ERROR,
+  payload,
+});
+
 export const stepUser = (payload) => ({
   type: UserActionTypes.STEP,
   payload,

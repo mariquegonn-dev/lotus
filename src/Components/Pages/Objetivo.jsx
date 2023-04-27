@@ -1,15 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import styles from "./Pages.module.css";
 import ObjetivoImg from "../../assets/png/objetivo.png";
-import { CustomerContext } from "../../Context/createAppContext";
 import Button from "../Button";
 import Input from "../Input/InputSelect";
 import { useDispatch, useSelector } from "react-redux";
-import { objetivoUser, stepUser } from "../../redux/user/actions";
+import { errorUser, objetivoUser, stepUser } from "../../redux/user/actions";
 
 const Objetivo = () => {
-  const { error, setError } = useContext(CustomerContext);
-  const { step, objetivo } = useSelector(
+  const { step, objetivo, error } = useSelector(
     (rootReducer) => rootReducer.userReducer
   );
   const dispatch = useDispatch();
@@ -54,9 +52,9 @@ const Objetivo = () => {
               if (objetivo !== null) {
                 if (step !== 7) {
                   dispatch(stepUser(step + 1));
-                  setError(false);
+                  dispatch(errorUser(false));
                 }
-              } else setError(true);
+              } else dispatch(errorUser(true));
             }}
           />
         </div>

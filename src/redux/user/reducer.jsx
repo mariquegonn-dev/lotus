@@ -1,6 +1,7 @@
 import UserActionTypes from "./action-types";
 
 const initialState = {
+  error: false,
   step: 0,
   sexo: null,
   idade: "",
@@ -12,6 +13,8 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
+    case UserActionTypes.ERROR:
+      return { ...state, error: action.payload };
     case UserActionTypes.STEP:
       return { ...state, step: action.payload };
     case UserActionTypes.SEXO:

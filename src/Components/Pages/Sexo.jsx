@@ -1,16 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import styles from "./Pages.module.css";
 import Button from "../Button";
 import Input from "../Input/InputSelect";
 import SexoImg from "../../assets/png/sexo.png";
-import { CustomerContext } from "../../Context/createAppContext";
 import { useSelector, useDispatch } from "react-redux";
-import { sexoUser, stepUser } from "../../redux/user/actions";
+import { errorUser, sexoUser, stepUser } from "../../redux/user/actions";
 
 const Sexo = () => {
-  const { error, setError } = useContext(CustomerContext);
-
-  const { sexo, step } = useSelector((rootReducer) => rootReducer.userReducer);
+  const { sexo, step, error } = useSelector(
+    (rootReducer) => rootReducer.userReducer
+  );
 
   const dispatch = useDispatch();
 
@@ -45,9 +44,9 @@ const Sexo = () => {
             if (sexo !== null) {
               if (step !== 7) {
                 dispatch(stepUser(step + 1));
-                setError(false);
+                dispatch(errorUser(false));
               }
-            } else setError(true);
+            } else dispatch(errorUser(true));
           }}
         />
       </form>

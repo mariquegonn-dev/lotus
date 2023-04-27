@@ -1,15 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import styles from "./Pages.module.css";
 import Button from "../Button";
 import Input from "../Input/InputDigit";
 import AlturaImg from "../../assets/png/altura.png";
-import { CustomerContext } from "../../Context/createAppContext";
 import { useDispatch, useSelector } from "react-redux";
-import { alturaUser, stepUser } from "../../redux/user/actions";
+import { alturaUser, errorUser, stepUser } from "../../redux/user/actions";
 
 const Altura = () => {
-  const { error, setError } = useContext(CustomerContext);
-  const { step, altura } = useSelector(
+  const { step, altura, error } = useSelector(
     (rootReducer) => rootReducer.userReducer
   );
   const dispatch = useDispatch();
@@ -49,9 +47,9 @@ const Altura = () => {
               if (altura !== "") {
                 if (step !== 7) {
                   dispatch(stepUser(step + 1));
-                  setError(false);
+                  dispatch(errorUser(false));
                 }
-              } else setError(true);
+              } else dispatch(errorUser(true));
             }}
           />
         </div>

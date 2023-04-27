@@ -1,15 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import styles from "./Pages.module.css";
 import atividadeFisicaImg from "../../assets/png/atividadeFisica.png";
-import { CustomerContext } from "../../Context/createAppContext";
 import Button from "../Button";
 import Input from "../Input/InputSelect";
 import { useDispatch, useSelector } from "react-redux";
-import { atvFisicaUser, stepUser } from "../../redux/user/actions";
+import { atvFisicaUser, errorUser, stepUser } from "../../redux/user/actions";
 
 const AtividadeFisica = () => {
-  const { error, setError } = useContext(CustomerContext);
-  const { step, atividadeFisica } = useSelector(
+  const { step, atividadeFisica, error } = useSelector(
     (rootReducer) => rootReducer.userReducer
   );
 
@@ -108,9 +106,9 @@ const AtividadeFisica = () => {
               if (atividadeFisica !== null) {
                 if (step !== 7) {
                   dispatch(stepUser(step + 1));
-                  setError(false);
+                  dispatch(errorUser(false));
                 }
-              } else setError(true);
+              } else dispatch(errorUser(true));
             }}
           />
         </div>

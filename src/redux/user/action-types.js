@@ -1,4 +1,5 @@
 const UserActionTypes = {
+  ERROR: "user/error",
   STEP: "user/step",
   SEXO: "user/sexo",
   IDADE: "user/idade",

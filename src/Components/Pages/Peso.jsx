@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import styles from "./Pages.module.css";
 import Button from "../Button";
 import Input from "../Input/InputDigit";
 import PesoImg from "../../assets/png/peso.png";
-import { CustomerContext } from "../../Context/createAppContext";
 import { useDispatch, useSelector } from "react-redux";
-import { pesoUser, stepUser } from "../../redux/user/actions";
+import { errorUser, pesoUser, stepUser } from "../../redux/user/actions";
 
 const Peso = () => {
-  const { error, setError } = useContext(CustomerContext);
-  const { step, peso } = useSelector((rootReducer) => rootReducer.userReducer);
+  const { step, peso, error } = useSelector(
+    (rootReducer) => rootReducer.userReducer
+  );
   const dispatch = useDispatch();
 
   return (
@@ -47,9 +47,9 @@ const Peso = () => {
               if (peso !== "") {
                 if (step !== 7) {
                   dispatch(stepUser(step + 1));
-                  setError(false);
+                  dispatch(errorUser(false));
                 }
-              } else setError(true);
+              } else dispatch(errorUser(true));
             }}
           />
         </div>

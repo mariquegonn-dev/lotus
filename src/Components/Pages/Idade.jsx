@@ -1,16 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import styles from "./Pages.module.css";
 import IdadeImg from "../../assets/png/idade.png";
-import { CustomerContext } from "../../Context/createAppContext";
 import Button from "../Button";
 import Input from "../Input/InputDigit";
 import { useDispatch, useSelector } from "react-redux";
-import { idadeUser, stepUser } from "../../redux/user/actions";
+import { errorUser, idadeUser, stepUser } from "../../redux/user/actions";
 
 const Idade = () => {
-  const { error, setError } = useContext(CustomerContext);
-
-  const { step, idade } = useSelector((rootReducer) => rootReducer.userReducer);
+  const { step, idade, error } = useSelector(
+    (rootReducer) => rootReducer.userReducer
+  );
 
   const dispatch = useDispatch();
 
@@ -49,9 +48,9 @@ const Idade = () => {
               if (idade !== "") {
                 if (step !== 7) {
                   dispatch(stepUser(step + 1));
-                  setError(false);
+                  dispatch(errorUser(false));
                 }
-              } else setError(true);
+              } else dispatch(errorUser(true));
             }}
           />
         </div>
