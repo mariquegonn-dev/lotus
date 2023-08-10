@@ -44,7 +44,9 @@ Para acessar o deploy: [Lotus Fit com Javascript](https://lotusfit.netlify.app/)
 
 # 👨🏻‍💻Autores e Agradecimentos
 
-- [mariquegonn-dev](https://www.github.com/mariquegonn-dev)
+- [mariquegonn-dev](https://www.github.com/mariquegonn-dev): idealização e criação do projeto
+
+- [taricioandrade](https://github.com/tarcisioandrade): sugestões e correção de bug com Context API
 
 Obrigado por ter chegado até aqui! 
 
